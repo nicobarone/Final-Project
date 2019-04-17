@@ -39,16 +39,18 @@ void LL::insertend(int v, int s){
   temp->next = newNode;
   return;
 }
-
 void LL::printListstart(){
   Node* temp = head;
-
-  while(temp->next != NULL){
-    cout<< temp->value <<" "<< temp->suit<<" -> ";
-    temp = temp->next;
+  if(head = NULL){
+    cout<<"List is empty"<<endl;
   }
-
-  cout<<temp->value<<" "<<temp->suit<<endl;
+  else{
+    while(temp->next != NULL){
+      cout<< temp->value <<" "<< temp->suit<<" -> ";
+      temp = temp->next;
+    }
+    cout<<temp->value<<" "<<temp->suit<<endl;
+  }
 }
 
 int parent(int index) {return (index-1)/2;}
