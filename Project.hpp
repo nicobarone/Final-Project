@@ -20,6 +20,8 @@ class LL
     void insertend(int value, int suit);
 		void printListstart();
 		void createhands(int* array1, int* array2);
+		void deleteAtIndex(int n);
+		void deal();
 };
 
 #ifndef HEAP_HPP
