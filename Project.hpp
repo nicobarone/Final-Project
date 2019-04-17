@@ -19,6 +19,7 @@ class LL
     }
     void insertend(int value, int suit);
 		void printListstart();
+		void createhands(int* array1, int* array2);
 };
 
 #ifndef HEAP_HPP
@@ -47,4 +48,3 @@ class Heap
 	int heapSize; //maximum capacity of the heap
 };
 #endif
-
