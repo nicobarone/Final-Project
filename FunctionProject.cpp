@@ -194,12 +194,12 @@ void LL::deleteAtIndex(int n)
 
   if(head == NULL){
     cout<< "List is already empty"<<endl;
-    //return isDeleted;
+
   }
 
 	Node *pres = head;
 	Node *prev = NULL;
-  for(int i = 0;i<=n;i++)
+  for(int i = 0;i<n;i++)
   {
     prev = pres;
     pres = pres -> next;
@@ -207,10 +207,21 @@ void LL::deleteAtIndex(int n)
   prev->next = pres -> next;
   delete pres;
 
-  //TODO Complete this function
+}
+
+void LL::deleteAtHead()
+{
 
 
-	//return isDeleted;
+  if(head == NULL){
+    cout<< "List is already empty"<<endl;
+
+  }
+
+  Node *temp = head;
+	head = temp->next;
+	delete temp;
+
 }
 
 
@@ -239,13 +250,13 @@ void LL::deal()
           playerArray1[i] = new Node;
           playerArray1[i]->value = temp->value;
           playerArray1[i]->suit = temp->suit;
-          /*cout<<"temp value"<<endl;
-          cout<<temp->value<<endl;
-          cout<<"r value"<<endl;
-          cout<<r<<endl;*/
-          deleteAtIndex(r-1);
-
-          //Now call remove r function from the linked list
+          if(r==1){
+            deleteAtHead();
+          }
+          else{
+            deleteAtIndex(r-1);
+          }
+            //Now call remove r function from the linked list
           //delete memory too
         }
         temp = temp->next;
@@ -261,7 +272,12 @@ void LL::deal()
           playerArray2[i] = new Node;
           playerArray2[i]->value = temp->value;
           playerArray2[i]->suit = temp->suit;
-          deleteAtIndex(r-1);
+          if(r==1){
+            deleteAtHead();
+          }
+          else{
+            deleteAtIndex(r-1);
+          }
           //Now call remove r function from the linked list
           //delete memory too
         }
@@ -286,7 +302,12 @@ void LL::deal()
           comCards[i-2] = new Node;
           comCards[i-2]->value = temp->value;
           comCards[i-2]->suit = temp->suit;
-          deleteAtIndex(r-1);
+          if(r==1){
+            deleteAtHead();
+          }
+          else{
+            deleteAtIndex(r-1);
+          }
           //Now call remove r function from the linked list
           //delete memory too
         }
@@ -308,3 +329,4 @@ void LL::deal()
   }
 
 }
+
