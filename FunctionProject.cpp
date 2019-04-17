@@ -240,7 +240,7 @@ void LL::deal()
     int m = 52;
     for(int i=0; i<2; i++){
       r = (rand() % m) + 1;
-      m = m - 1;
+      m--;
       cout<<"rand num "<<r<<endl;
       j=1;
       Node* temp = new Node;
@@ -264,7 +264,7 @@ void LL::deal()
       }
       r = (rand() % m) + 1;
       cout<<"rand num "<<r<<endl;
-      m = m - 1;
+      m--;
       j=1;
       temp = head;
       while(temp->next != NULL){
@@ -288,7 +288,7 @@ void LL::deal()
   for(int i=2; i<7; i++){
     r = (rand() % m) + 1;
     cout<<"rand num "<<r<<endl;
-    m = m - 1;
+    m--;
       j=1;
       temp = head;
     while(temp->next != NULL){
