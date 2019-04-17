@@ -206,19 +206,22 @@ void LL::deleteAtIndex(int n)
     cout<< "List is already empty"<<endl;
 
   }
-
-	Node *pres = head;
-	Node *prev = NULL;
+  Node *pres = head;
+  Node *prev = NULL;
   for(int i = 0;i<n;i++)
   {
     prev = pres;
     pres = pres -> next;
   }
-  prev->next = pres -> next;
-  delete pres;
-
+  if(pres->next == NULL){
+    prev->next = NULL
+    delete pres;
+  }
+  else{
+    prev->next = pres -> next;
+    delete pres;
+  }
 }
-
 void LL::deleteAtHead()
 {
 
