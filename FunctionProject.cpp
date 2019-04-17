@@ -6,12 +6,12 @@
 using namespace std;
 void LL::shuffle(){
   Node* temp = head;
+  Node* next = head;
   while(temp != NULL){
-    Node* next = temp->next;
-    delete current;
-    current = next;
+    next = temp->next;
+    delete temp;
+    temp = next;
   }
-  head = NULL;
 }
 void LL::insertend(int v, int s){
   //1. ALLOCATE NODE
@@ -41,7 +41,7 @@ void LL::insertend(int v, int s){
 }
 void LL::printListstart(){
   Node* temp = head;
-  if(head = NULL){
+  if(temp == NULL){
     cout<<"List is empty"<<endl;
   }
   else{
