@@ -4,7 +4,15 @@
 #include "Project.hpp"
 
 using namespace std;
-
+void LL::shuffle(){
+  Node* temp = head;
+  while(temp != NULL){
+    Node* next = temp->next;
+    delete current;
+    current = next;
+  }
+  head = NULL;
+}
 void LL::insertend(int v, int s){
   //1. ALLOCATE NODE
   Node* newNode = new Node;
