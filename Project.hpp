@@ -21,6 +21,7 @@ class LL
 		void printListstart();
 		void createhands(int* array1, int* array2);
 		void deleteAtIndex(int n);
+		void deleteAtHead();
 		void deal();
 };
 
