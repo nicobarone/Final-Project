@@ -4,15 +4,9 @@
 #include "Project.hpp"
 
 using namespace std;
-void LL::shuffle(){
-  Node* temp = head;
-  Node* next = head;
-  while(temp != NULL){
-    next = temp->next;
-    delete temp;
-    temp = next;
-  }
-}
+
+
+
 void LL::insertend(int v, int s){
   //1. ALLOCATE NODE
   Node* newNode = new Node;
@@ -39,6 +33,8 @@ void LL::insertend(int v, int s){
   temp->next = newNode;
   return;
 }
+
+
 void LL::printListstart(){
   Node* temp = head;
   if(temp == NULL){
@@ -187,17 +183,7 @@ void LL::createhands(int* array1, int* array2)
 		newarray2[i] = hand2.removeFromHeap();
 	}
 }
-/*void LL::newprint()
-{
-  for(int i = 0; i<7;i++)
-  {
-    cout<<playerArray1[i]->value<<" "<<playerArray1[i]->suit<<endl;
-  }
-  for(int i = 0; i<7;i++)
-  {
-    cout<<playerArray2[i]->value<<" "<<playerArray2[i]->suit<<endl;
-  }
-}*/
+
 void LL::deleteAtIndex(int n)
 {
 
@@ -206,22 +192,25 @@ void LL::deleteAtIndex(int n)
     cout<< "List is already empty"<<endl;
 
   }
-  Node *pres = head;
-  Node *prev = NULL;
+
+	Node *pres = head;
+	Node *prev = NULL;
   for(int i = 0;i<n;i++)
   {
     prev = pres;
     pres = pres -> next;
   }
   if(pres->next == NULL){
-    prev->next = NULL
-    delete pres;
+   prev->next = NULL;
+   delete pres;
   }
   else{
-    prev->next = pres -> next;
-    delete pres;
+   prev->next = pres -> next;
+   delete pres;
   }
+
 }
+
 void LL::deleteAtHead()
 {
 
@@ -253,7 +242,7 @@ void LL::deal()
     int m = 52;
     for(int i=0; i<2; i++){
       r = (rand() % m) + 1;
-      m--;
+      m = m - 1;
       cout<<"rand num "<<r<<endl;
       j=1;
       Node* temp = new Node;
@@ -277,7 +266,7 @@ void LL::deal()
       }
       r = (rand() % m) + 1;
       cout<<"rand num "<<r<<endl;
-      m--;
+      m = m - 1;
       j=1;
       temp = head;
       while(temp->next != NULL){
@@ -301,7 +290,7 @@ void LL::deal()
   for(int i=2; i<7; i++){
     r = (rand() % m) + 1;
     cout<<"rand num "<<r<<endl;
-    m--;
+    m = m - 1;
       j=1;
       temp = head;
     while(temp->next != NULL){
@@ -340,6 +329,54 @@ void LL::deal()
   {
     cout<<playerArray2[i]->value<<" "<<playerArray2[i]->suit<<endl;
   }
+
+
+
+  Heap player1(7);
+  Heap player2(7);
+
+  for(int i =0; i<7;i++)
+	{
+		player1.addToHeap(playerArray1[i]->value);
+	}
+
+  for(int i =0; i<7;i++)
+  {
+    player2.addToHeap(playerArray2[i]->value);
+  }
+
+  int newplayerArray1[7];
+  int newplayerArray2[7];
+
+  for(int i = 0; i < 7;i++)
+  {
+    newplayerArray1[i] = player1.removeFromHeap();
+  }
+  cout<<"New array"<<endl;
+
+  for(int i = 0; i<7;i++)
+  {
+    cout<<newplayerArray1[i]<<" ";
+  }
+  cout<<endl;
+
+  for(int i = 0; i < 7;i++)
+  {
+    newplayerArray2[i] = player2.removeFromHeap();
+  }
+  cout<<"New array"<<endl;
+
+  for(int i = 0; i<7;i++)
+  {
+    cout<<newplayerArray2[i]<<" ";
+  }
+  cout<<endl;
+
+  for(int i = 0; i<43;i++)
+  {
+    deleteAtHead();
+  }
+  printListstart();
 
 }
 
