@@ -1,4 +1,6 @@
 #include <iostream>
+#include <ctime>    // For time()
+#include <cstdlib>
 #include "Project.hpp"
 
 using namespace std;
@@ -38,7 +40,7 @@ void LL::printListstart(){
     temp = temp->next;
   }
 
-  cout<<temp->value<<endl;
+  cout<<temp->value<<" "<<temp->suit<<endl;
 }
 
 int parent(int index) {return (index-1)/2;}
@@ -174,4 +176,135 @@ void LL::createhands(int* array1, int* array2)
 	{
 		newarray2[i] = hand2.removeFromHeap();
 	}
+}
+/*void LL::newprint()
+{
+  for(int i = 0; i<7;i++)
+  {
+    cout<<playerArray1[i]->value<<" "<<playerArray1[i]->suit<<endl;
+  }
+  for(int i = 0; i<7;i++)
+  {
+    cout<<playerArray2[i]->value<<" "<<playerArray2[i]->suit<<endl;
+  }
+}*/
+void LL::deleteAtIndex(int n)
+{
+
+
+  if(head == NULL){
+    cout<< "List is already empty"<<endl;
+    //return isDeleted;
+  }
+
+	Node *pres = head;
+	Node *prev = NULL;
+  for(int i = 1;i<=n;i++)
+  {
+    prev = pres;
+    pres = pres -> next;
+  }
+  prev->next = pres -> next;
+  delete pres;
+
+  //TODO Complete this function
+
+
+	//return isDeleted;
+}
+
+
+
+void LL::deal()
+{
+  //Deal
+    srand(time(0));  // Initialize random number generator.
+    Node **playerArray1 = new Node*[7];
+    Node **playerArray2 = new Node*[7];
+    Node **comCards = new Node*[5];
+
+    Node* temp = new Node;
+    temp = head;
+    int r,j;
+    int m = 52;
+    for(int i=0; i<2; i++){
+      r = (rand() % m) + 1;
+      m = m - 1;
+      cout<<"rand num "<<r<<endl;
+      j=1;
+      Node* temp = new Node;
+      temp = head;
+      while(temp->next != NULL){
+      if(j == r){
+          playerArray1[i] = new Node;
+          playerArray1[i]->value = temp->value;
+          playerArray1[i]->suit = temp->suit;
+          cout<<"temp value"<<endl;
+          cout<<temp->value<<endl;
+          cout<<"r value"<<endl;
+          cout<<r<<endl;
+          deleteAtIndex(r);
+
+          //Now call remove r function from the linked list
+          //delete memory too
+        }
+        temp = temp->next;
+        j++;
+      }
+      r = (rand() % m) + 1;
+      cout<<"rand num "<<r<<endl;
+      m = m - 1;
+      j=1;
+      temp = head;
+      while(temp->next != NULL){
+      if(j == r){
+          playerArray2[i] = new Node;
+          playerArray2[i]->value = temp->value;
+          playerArray2[i]->suit = temp->suit;
+          deleteAtIndex(r);
+          //Now call remove r function from the linked list
+          //delete memory too
+        }
+        temp = temp->next;
+        j++;
+      }
+    }
+  for(int i=2; i<7; i++){
+    r = (rand() % m) + 1;
+    cout<<"rand num "<<r<<endl;
+    m = m - 1;
+      j=1;
+      temp = head;
+    while(temp->next != NULL){
+        if(j == r){
+          playerArray1[i] = new Node;
+          playerArray1[i]->value = temp->value;
+          playerArray1[i]->suit = temp->suit;
+          playerArray2[i] = new Node;
+          playerArray2[i]->value = temp->value;
+          playerArray2[i]->suit = temp->suit;
+          comCards[i-2] = new Node;
+          comCards[i-2]->value = temp->value;
+          comCards[i-2]->suit = temp->suit;
+          deleteAtIndex(r);
+          //Now call remove r function from the linked list
+          //delete memory too
+        }
+        temp = temp->next;
+        j++;
+      }
+  }
+  cout<<"player 1 hand"<<endl;
+
+  for(int i = 0; i<7;i++)
+  {
+    cout<<playerArray1[i]->value<<" "<<playerArray1[i]->suit<<endl;
+  }
+
+  cout<<"player 2 hand"<<endl;
+  for(int i = 0; i<7;i++)
+  {
+    cout<<playerArray2[i]->value<<" "<<playerArray2[i]->suit<<endl;
+  }
+
 }
