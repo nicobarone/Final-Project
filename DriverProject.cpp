@@ -9,7 +9,7 @@ int main()
 {
   LL ll;
 
-	for(int i=2; i<=14; i++)
+	for(int i=2; i<=15; i++)
   {//creates Initial deck
 	   for(int k=0; k < 4;k++)
     	{
