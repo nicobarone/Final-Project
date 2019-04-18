@@ -153,35 +153,35 @@ bool Heap::isEmpty() {
 void LL::createhands(int* array1, int* array2)
 {
 
-	Heap hand1(7);
-	int newarray1[7];
+  Heap hand1(7);
+  int newarray1[7];
 
-	for(int i =0; i<7;i++)
-	{
-		hand1.addToHeap(array1[i]);
-	}
-	hand1.printHeap();
-	cout<<endl;
+  for(int i =0; i<7;i++)
+  {
+    hand1.addToHeap(array1[i]);
+  }
+  hand1.printHeap();
+  cout<<endl;
 
-	for(int i = 0; i < 7;i++)
-	{
-		newarray1[i] = hand1.removeFromHeap();
-	}
+  for(int i = 0; i < 7;i++)
+  {
+    newarray1[i] = hand1.removeFromHeap();
+  }
 
 
-	Heap hand2(7);
-	int newarray2[7];
+  Heap hand2(7);
+  int newarray2[7];
 
-	for(int i =0; i<7;i++)
-	{
-		hand2.addToHeap(array2[i]);
-	}
-	hand2.printHeap();
+  for(int i =0; i<7;i++)
+  {
+    hand2.addToHeap(array2[i]);
+  }
+  hand2.printHeap();
 
-	for(int i = 0; i < 7;i++)
-	{
-		newarray2[i] = hand2.removeFromHeap();
-	}
+  for(int i = 0; i < 7;i++)
+  {
+    newarray2[i] = hand2.removeFromHeap();
+  }
 }
 
 void LL::deleteAtIndex(int n)
@@ -193,8 +193,8 @@ void LL::deleteAtIndex(int n)
 
   }
 
-	Node *pres = head;
-	Node *prev = NULL;
+  Node *pres = head;
+  Node *prev = NULL;
   for(int i = 0;i<n;i++)
   {
     prev = pres;
@@ -221,8 +221,8 @@ void LL::deleteAtHead()
   }
 
   Node *temp = head;
-	head = temp->next;
-	delete temp;
+  head = temp->next;
+  delete temp;
 
 }
 
@@ -334,49 +334,64 @@ void LL::deal()
 
   Heap player1(7);
   Heap player2(7);
+  Heap player1Suits(7);
+  Heap player1Suits(7);
 
   for(int i =0; i<7;i++)
-	{
-		player1.addToHeap(playerArray1[i]->value);
-	}
+  {
+    player1.addToHeap(playerArray1[i]->value);
+  }
 
   for(int i =0; i<7;i++)
   {
     player2.addToHeap(playerArray2[i]->value);
   }
 
+  for(int i=0; i<7; i++){
+    player1Suits.addToHeap(playerArray1[i]->suit);
+  }
+
+  for(int i=0; i<7; i++){
+    player2Suits.addToHeap(playerArray2[i]->suit);
+  }
+
   int newplayerArray1[7];
   int newplayerArray2[7];
+  int newsuitArray1[7];
+  int newsuitArray2[7];
 
   for(int i = 0; i < 7;i++)
   {
     newplayerArray1[i] = player1.removeFromHeap();
-  }
-  cout<<"New array"<<endl;
-
-  for(int i = 0; i<7;i++)
-  {
     cout<<newplayerArray1[i]<<" ";
   }
-  cout<<endl;
+  cout<<"New array"<<endl;
 
   for(int i = 0; i < 7;i++)
   {
     newplayerArray2[i] = player2.removeFromHeap();
+    cout<<newplayerArray2[i]<<" ";
   }
   cout<<"New array"<<endl;
 
-  for(int i = 0; i<7;i++)
+  for(int i = 0; i < 7;i++)
   {
-    cout<<newplayerArray2[i]<<" ";
+    newsuitArray1[i] = player1.removeFromHeap();
+    cout<<newsuitArray1[i]<<" ";
   }
-  cout<<endl;
+  cout<<"New array"<<endl;
 
+  for(int i = 0; i < 7;i++)
+  {
+    newsuitArray2[i] = player2.removeFromHeap();
+    cout<<newsuitArray2[i]<<" ";
+  }
+  cout<<"New array"<<endl;
+
+  player1.whowins(newplayerArray1, newplayerArray2, newsuitArray1, newsuitArray2);
   for(int i = 0; i<43;i++)
   {
     deleteAtHead();
   }
   printListstart();
-
 }
-
