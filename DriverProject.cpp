@@ -18,6 +18,7 @@ int main()
 		    ll.insertend(i,k);
      	}
     }
+	ll.insertend(0,0);
 	ll.printListstart();
 	ll.deal();
 }	
