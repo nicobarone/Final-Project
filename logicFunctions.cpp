@@ -73,6 +73,16 @@ void LL::whowins(Node *player1[], Node *player2[])
 {
   int playerval1 = 0;
   int playerval2 = 0;
+  Node **playeroof1 = new Node*[7];
+  Node **playeroof2 = new Node*[7];
+  for(int i=0; i<7; i++){
+    playeroof1[i] = new Node;
+    playeroof1[i]->value = i+1;
+    playeroof1[i]->suit = 0;
+    playeroof2[i] = new Node;
+    playeroof2[i]->value = i+1;
+    playeroof2[i]->suit = 0;
+  }
 
   
 
