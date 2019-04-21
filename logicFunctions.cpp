@@ -64,6 +64,7 @@ void LL::threeofakind(Node *player[])
 }
 
 
+
 void LL::straight(Node *player[])
 {
   int k=0;
@@ -75,7 +76,8 @@ void LL::straight(Node *player[])
       if(player[i+1]->value != player[i]->value){
         j++;
       }
-      if(j == 5){
+      i++;
+      if(j == 4){
         player[7]->value = 4;
         k=1;
         break;
@@ -87,11 +89,30 @@ void LL::straight(Node *player[])
     }
     i=m;
   }
+  if((player[7]->value != 4) && (player[1]->value == 14)){
+    int x = player[7]->value;
+    player[7]->value = 1;
+    int p = 4;
+    int n = 0;
+    while(player[p+1]->value == (player[p]->value-1) || player[p+1]->value == player[p]->value){
+      if(player[p+1]->value != player[p]->value){
+        n++;
+      }
+      p++;
+      if(n == 4){
+        player[7]->value = 4;
+        k=1;
+        break;
+      }
+    }
+    if(k == 1){
+      player[7]->suit = player[3]->value;
+    }
+  }
   cout<<"???????????????????????"<<endl;
   cout<<player[7]->value<<endl;
   cout<<player[7]->suit<<endl<<endl;
 }
-
 void LL::flush(Node *player[]){
   int count0=0,count1=0,count2=0,count3=0;
   int j=4;
