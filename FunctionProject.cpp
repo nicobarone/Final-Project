@@ -317,6 +317,11 @@ void LL::deal()
         j++;
       }
   }
+  //playerArray1[8]->value = 0;
+  //playerArray1[8]->suit = 0;
+  //playerArray2[8]->value = 0;
+  //playerArray2[8]->suit = 0;
+
   cout<<"player 1 hand"<<endl;
 
   for(int i = 0; i<7;i++)
@@ -391,35 +396,50 @@ void LL::deal()
     player2.addToHeap(testarray2[i]);
   }
 
-  Node **newplayerArray1 = new Node*[7];
-  Node **newplayerArray2 = new Node*[7];
+  Node **newplayerArray1 = new Node*[8];
+  Node **newplayerArray2 = new Node*[8];
   int newsuitArray1[7];
   int newsuitArray2[7];
 
   //cout<<"New array"<<endl;
 
-  for(int i = 0; i < 7;i++)
+  for(int i = 0; i < 10;i++)
   {
     newplayerArray1[i] = new Node;
+    if (i >= 7)
+    {
+      newplayerArray1[i]->value = 0;
+      newplayerArray1[i]->suit = 0;
+    }
+    else {
     newplayerArray1[i]->value = player1.removeFromHeap();
     newplayerArray1[i]->suit = 0;
+   }
     //cout<<newplayerArray1[i]->value<<" "<<newplayerArray1[i]->suit<<" -> ";
   }
 
-  for(int i = 0; i < 7;i++)
+  for(int i = 0; i < 10;i++)
   {
     newplayerArray2[i] = new Node;
+    if (i >= 7)
+    {
+      newplayerArray2[i]->value = 0;
+      newplayerArray2[i]->suit = 0;
+    }
+    else {
     newplayerArray2[i]->value = player2.removeFromHeap();
     newplayerArray2[i]->suit = 0;
+   }
     //cout<<newplayerArray1[i]->value<<" "<<newplayerArray1[i]->suit<<" -> ";
   }
   cout<<endl;
   cout<<"New array"<<endl;
 
-  for(int i = 0; i < 7;i++)
+  for(int i = 0; i < 10;i++)
   {
     float rem = newplayerArray1[i]->value % 5;
     //cout<<" rem-"<<rem<<" ";
+
     if(rem == 0)
     {
       newplayerArray1[i]->value = (newplayerArray1[i]->value - 5) / 10;
@@ -440,6 +460,7 @@ void LL::deal()
       newplayerArray1[i]->value = (newplayerArray1[i]->value - 2) / 10;
       newplayerArray1[i]->suit = 0;
     }
+
     cout<<newplayerArray1[i]->value<<" "<<newplayerArray1[i]->suit<<"  ";
   }
   cout<<endl;
@@ -447,7 +468,7 @@ void LL::deal()
   cout<<endl;
   cout<<"New array"<<endl;
 
-  for(int i = 0; i < 7;i++)
+  for(int i = 0; i < 10;i++)
   {
     float rem = newplayerArray2[i]->value % 5;
     //cout<<" rem-"<<rem<<" ";
@@ -474,6 +495,15 @@ void LL::deal()
     cout<<newplayerArray2[i]->value<<" "<<newplayerArray2[i]->suit<<"  ";
   }
   cout<<endl;
+
+  newplayerArray1[7]->suit = 0;
+  newplayerArray2[7]->suit = 0;
+  newplayerArray1[8]->suit = 0;
+  newplayerArray2[8]->suit = 0;
+  newplayerArray1[9]->suit = 0;
+  newplayerArray2[8]->suit = 0;
+
+  whowins(newplayerArray1, newplayerArray2);
 
 
   for(int i = 0; i<44;i++)
