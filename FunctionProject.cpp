@@ -63,20 +63,17 @@ Heap::~Heap(){
   delete[] heap;
 }
 
-
-void Heap::printHeap() {
-  for(int i = 0; i < currentSize; i++) cout<< heap[i] << endl;
-}
-
 /* Max Heap */
 
 void Heap::addToHeap (int value) {
+  heapSize = 100;
   if (currentSize == heapSize) {
-    cout << "Heap overflow " << endl;
+    cout << "Heap overflow " << currentSize<< endl;
   }
   else {
     // insert a value in a heap
     currentSize++;
+    //cout<< currentSize<<endl;
     heap[currentSize-1] = value;
     int i = currentSize-1;
     while(parent(i) >= 0 && heap[parent(i)] < heap[i]){
@@ -121,68 +118,6 @@ int Heap::removeFromHeap() { // just for min heaps
   }
 }
 
-int Heap::peekValue() {
-  if (currentSize <= 0) {
-    cout << " Heap is empty: returning garbage" << endl;
-    return -1;
-  }
-  else return heap[0];
-}
-
-bool Heap::isFull() {
-  if (currentSize == heapSize) {
-    cout << " Heap is Full " << endl;
-    return true;
-  }
-  else {
-    return false;
-  }
-}
-
-bool Heap::isEmpty() {
-  if (currentSize <= 0) {
-    cout << " Heap is empty " << endl;
-    return true;
-  }
-  else {
-    return false;
-  }
-}
-
-
-void LL::createhands(int* array1, int* array2)
-{
-
-	Heap hand1(7);
-	int newarray1[7];
-
-	for(int i =0; i<7;i++)
-	{
-		hand1.addToHeap(array1[i]);
-	}
-	hand1.printHeap();
-	cout<<endl;
-
-	for(int i = 0; i < 7;i++)
-	{
-		newarray1[i] = hand1.removeFromHeap();
-	}
-
-
-	Heap hand2(7);
-	int newarray2[7];
-
-	for(int i =0; i<7;i++)
-	{
-		hand2.addToHeap(array2[i]);
-	}
-	hand2.printHeap();
-
-	for(int i = 0; i < 7;i++)
-	{
-		newarray2[i] = hand2.removeFromHeap();
-	}
-}
 
 void LL::deleteAtIndex(int n)
 {
@@ -232,9 +167,7 @@ void LL::deal(Node *playerArray1[], Node *playerArray2[])
 {
   //Deal
     srand(time(0));  // Initialize random number generator.
-    //Node **playerArray1 = new Node*[7];
-    //Node **playerArray2 = new Node*[7];
-    Node **comCards = new Node*[5];
+
 
     Node* temp = new Node;
     temp = head;
@@ -280,8 +213,6 @@ void LL::deal(Node *playerArray1[], Node *playerArray2[])
           else{
             deleteAtIndex(r-1);
           }
-          //Now call remove r function from the linked list
-          //delete memory too
         }
         temp = temp->next;
         j++;
@@ -289,7 +220,6 @@ void LL::deal(Node *playerArray1[], Node *playerArray2[])
     }
   for(int i=2; i<7; i++){
     r = (rand() % m) + 1;
-    //cout<<"rand num "<<r<<endl;
     m = m - 1;
       j=1;
       temp = head;
@@ -301,26 +231,17 @@ void LL::deal(Node *playerArray1[], Node *playerArray2[])
           playerArray2[i] = new Node;
           playerArray2[i]->value = temp->value;
           playerArray2[i]->suit = temp->suit;
-          comCards[i-2] = new Node;
-          comCards[i-2]->value = temp->value;
-          comCards[i-2]->suit = temp->suit;
           if(r==1){
             deleteAtHead();
           }
           else{
             deleteAtIndex(r-1);
           }
-          //Now call remove r function from the linked list
-          //delete memory too
         }
         temp = temp->next;
         j++;
       }
   }
-  //playerArray1[8]->value = 0;
-  //playerArray1[8]->suit = 0;
-  //playerArray2[8]->value = 0;
-  //playerArray2[8]->suit = 0;
 
   cout<<"player 1 hand"<<endl;
 
@@ -381,30 +302,21 @@ void LL::deal(Node *playerArray1[], Node *playerArray2[])
 
   cout<<endl;
 
-  Heap player1(20);
-  Heap player2(20);
+  Heap p1(20);
+  Heap p2(20);
 
-
-  //Heap player1Suits(7);
-  //Heap player2Suits(7);
 
   for(int i =0; i<7;i++)
   {
-    player1.addToHeap(testarray[i]);
+    p1.addToHeap(testarray[i]);
   }
 
 
   for(int i =0; i<7;i++)
   {
-    player2.addToHeap(testarray2[i]);
+    p2.addToHeap(testarray2[i]);
   }
 
-  //Node **newplayerArray1 = new Node*[8];
-  //Node **newplayerArray2 = new Node*[8];
-  int newsuitArray1[7];
-  int newsuitArray2[7];
-
-  //cout<<"New array"<<endl;
 
   for(int i = 0; i < 10;i++)
   {
@@ -415,10 +327,9 @@ void LL::deal(Node *playerArray1[], Node *playerArray2[])
       playerArray1[i]->suit = 0;
     }
     else {
-    playerArray1[i]->value = player1.removeFromHeap();
+    playerArray1[i]->value = p1.removeFromHeap();
     playerArray1[i]->suit = 0;
    }
-    //cout<<newplayerArray1[i]->value<<" "<<newplayerArray1[i]->suit<<" -> ";
   }
 
   for(int i = 0; i < 10;i++)
@@ -430,10 +341,9 @@ void LL::deal(Node *playerArray1[], Node *playerArray2[])
       playerArray2[i]->suit = 0;
     }
     else {
-    playerArray2[i]->value = player2.removeFromHeap();
+    playerArray2[i]->value = p2.removeFromHeap();
     playerArray2[i]->suit = 0;
    }
-    //cout<<newplayerArray1[i]->value<<" "<<newplayerArray1[i]->suit<<" -> ";
   }
   cout<<endl;
   cout<<"New array"<<endl;
@@ -441,7 +351,7 @@ void LL::deal(Node *playerArray1[], Node *playerArray2[])
   for(int i = 0; i < 10;i++)
   {
     float rem = playerArray1[i]->value % 5;
-    //cout<<" rem-"<<rem<<" ";
+
 
     if(rem == 0)
     {
@@ -474,7 +384,7 @@ void LL::deal(Node *playerArray1[], Node *playerArray2[])
   for(int i = 0; i < 10;i++)
   {
     float rem = playerArray2[i]->value % 5;
-    //cout<<" rem-"<<rem<<" ";
+
     if(rem == 0)
     {
       playerArray2[i]->value = (playerArray2[i]->value - 5) / 10;
@@ -514,6 +424,4 @@ void LL::deal(Node *playerArray1[], Node *playerArray2[])
     deleteAtHead();
   }
   printListstart();
-
-
 }
