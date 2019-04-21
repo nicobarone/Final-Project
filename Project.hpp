@@ -20,7 +20,16 @@ class LL
     void insertend(int value, int suit);
 		void printListstart();
 		void createhands(int* array1, int* array2);
-		
+		bool pair(Node *player[]);
+		bool twopair(Node *player[]);
+		bool threeofakind(Node *player[]);
+		bool straight(Node *player[]);
+		bool flush(Node *player[]);
+		bool fullhouse(Node *player[]);
+		bool fourofakind(Node *player[]);
+		bool straightflush(Node *player[]);
+		bool checkhighcard(Node *player[], Node *player2[]);
+		void whowins(Node *player1[], Node *player2[]);
 		void deleteAtIndex(int n);
 		void deleteAtHead();
 		void deal();
@@ -41,6 +50,7 @@ class Heap
 	int peekValue();
 	bool isFull();
 	bool isEmpty();
+
 
 	private:
 
