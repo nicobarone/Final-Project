@@ -20,5 +20,7 @@ int main()
     }
 	ll.insertend(0,0);
 	ll.printListstart();
-	ll.deal();
-}	
+	Node **playerArray1 = new Node*[10];
+	Node **playerArray2 = new Node*[10];
+	ll.deal(playerArray1, playerArray2);
+}
