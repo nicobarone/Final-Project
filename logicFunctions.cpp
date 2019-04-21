@@ -150,15 +150,32 @@ void LL::fourofakind(Node *player[])
   cout<<"------------------"<<endl;*/
 }
 void LL::straightflush(Node *player[])
+void LL::straight(Node *player[])
 {
-  for(int i=0;i<3;i++){
-    if((player[i]->value)+1 == player[i+1]->value && (player[i]->value)+2 == player[i+2]->value && (player[i]->value)+3 == player[i+3]->value && (player[i]->value)+4 == player[i+4]->value){
-      if(player[i]->suit == player[i+1]->suit && player[i]->suit == player[i+2]->suit && player[i]->suit == player[i+3]->suit && player[i]->suit == player[i+4]->suit){
-        player[7]->value = 9;
+  int k=0;
+  int m=0;
+  for(int i=0; i<3; i++){
+    int j=0;
+    m = i;
+    while(player[i+1] == (player[i]-1) || player[i+1] == player[i]){
+      if(player[i+1] != player[i]){
+        j++;
+      }
+      if(j=5){
+        player[7]->value = 4;
+        k=1;
+        break;
       }
     }
+    if(k = 1){
+      player[7]->suit = player[m]->value;
+      break;
+    }
+    i=m;
   }
+  cout<<"???????????????????????"<<endl;
   cout<<player[7]->value<<endl;
+  cout<<player[7]->suit<<endl<<endl;
 }
 void LL::checkhighcard(Node *player[], Node *player2[])
 {
