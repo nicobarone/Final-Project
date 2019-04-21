@@ -66,19 +66,60 @@ void LL::straight(Node *player[])
   //for(int i = 0; i<3;i++)
 }
 void LL::flush(Node *player[]){
-  int count=0;
-  int j=0;
-  for(int i=0;i<3;i++){
-    if(player[i]->suit == player[i+1]->suit && player[i]->suit == player[i+2]->suit && player[i]->suit == player[i+3]->suit && player[i]->suit == player[i+4]->suit){
-      if(j==0){
-        player[7]->suit = player[i]->value;
-        player[8]->value = player[i+1]->value;
-        player[8]->suit = player[i+2]->value;
-        player[9]->value = player[i+3]->value;
-        player[9]->suit = player[i+4]->value;
-        j++;
+  int count0=0,count1=0,count2=0,count3=0;
+  int j=4;
+  int l=0;
+  for(int i=0;i<7;i++){
+    if(player[i]->suit == 0){
+      count0++;
+      if(count0 == 5){
+        j=0;
       }
-      player[7]->value = 5;
+    }
+    if(player[i]->suit == 1){
+      count1++;
+      if(count1 == 5){
+        j=1;
+      }
+    }
+    if(player[i]->suit == 2){
+      count2++;
+      if(count2 == 5){
+        j=0;
+      }
+    }
+    if(player[i]->suit == 3){
+      count3++;
+      if(count3 == 5){
+        j=0;
+      }
+    }
+  }
+  if(j != 4){
+    player[7]->value = 5; 
+    for(int k=0;k<7;k++){
+      if(player[k]->suit = j){
+        if(l==0){
+          player[7]->suit = player[k]->value;
+          l++;
+        }
+        else if(l==1){
+          player[8]->value = player[k]->value;
+          l++;
+        }
+        else if(l==2){
+          player[8]->suit = player[k]->value;
+          l++;
+        }
+        else if(l==3){
+          player[9]->value = player[k]->value;
+          l++;        
+        }
+        else if(l==4){
+          player[9]->suit = player[k]->value;
+          l++;
+        }
+      }
     }
   }
   cout<<"---------*---------"<<endl;
