@@ -72,7 +72,7 @@ void Heap::printHeap() {
 
 void Heap::addToHeap (int value) {
   if (currentSize == heapSize) {
-    cout << "Heap overflow" << endl;
+    cout << "Heap overflow " << endl;
   }
   else {
     // insert a value in a heap
@@ -228,12 +228,12 @@ void LL::deleteAtHead()
 
 
 
-void LL::deal()
+void LL::deal(Node *playerArray1[], Node *playerArray2[])
 {
   //Deal
     srand(time(0));  // Initialize random number generator.
-    Node **playerArray1 = new Node*[7];
-    Node **playerArray2 = new Node*[7];
+    //Node **playerArray1 = new Node*[7];
+    //Node **playerArray2 = new Node*[7];
     Node **comCards = new Node*[5];
 
     Node* temp = new Node;
@@ -381,8 +381,10 @@ void LL::deal()
 
   cout<<endl;
 
-  Heap player1(7);
-  Heap player2(7);
+  Heap player1(20);
+  Heap player2(20);
+
+
   //Heap player1Suits(7);
   //Heap player2Suits(7);
 
@@ -391,13 +393,14 @@ void LL::deal()
     player1.addToHeap(testarray[i]);
   }
 
+
   for(int i =0; i<7;i++)
   {
     player2.addToHeap(testarray2[i]);
   }
 
-  Node **newplayerArray1 = new Node*[8];
-  Node **newplayerArray2 = new Node*[8];
+  //Node **newplayerArray1 = new Node*[8];
+  //Node **newplayerArray2 = new Node*[8];
   int newsuitArray1[7];
   int newsuitArray2[7];
 
@@ -405,30 +408,30 @@ void LL::deal()
 
   for(int i = 0; i < 10;i++)
   {
-    newplayerArray1[i] = new Node;
+    playerArray1[i] = new Node;
     if (i >= 7)
     {
-      newplayerArray1[i]->value = 0;
-      newplayerArray1[i]->suit = 0;
+      playerArray1[i]->value = 0;
+      playerArray1[i]->suit = 0;
     }
     else {
-    newplayerArray1[i]->value = player1.removeFromHeap();
-    newplayerArray1[i]->suit = 0;
+    playerArray1[i]->value = player1.removeFromHeap();
+    playerArray1[i]->suit = 0;
    }
     //cout<<newplayerArray1[i]->value<<" "<<newplayerArray1[i]->suit<<" -> ";
   }
 
   for(int i = 0; i < 10;i++)
   {
-    newplayerArray2[i] = new Node;
+    playerArray2[i] = new Node;
     if (i >= 7)
     {
-      newplayerArray2[i]->value = 0;
-      newplayerArray2[i]->suit = 0;
+      playerArray2[i]->value = 0;
+      playerArray2[i]->suit = 0;
     }
     else {
-    newplayerArray2[i]->value = player2.removeFromHeap();
-    newplayerArray2[i]->suit = 0;
+    playerArray2[i]->value = player2.removeFromHeap();
+    playerArray2[i]->suit = 0;
    }
     //cout<<newplayerArray1[i]->value<<" "<<newplayerArray1[i]->suit<<" -> ";
   }
@@ -437,31 +440,31 @@ void LL::deal()
 
   for(int i = 0; i < 10;i++)
   {
-    float rem = newplayerArray1[i]->value % 5;
+    float rem = playerArray1[i]->value % 5;
     //cout<<" rem-"<<rem<<" ";
 
     if(rem == 0)
     {
-      newplayerArray1[i]->value = (newplayerArray1[i]->value - 5) / 10;
-      newplayerArray1[i]->suit = 3;
+      playerArray1[i]->value = (playerArray1[i]->value - 5) / 10;
+      playerArray1[i]->suit = 3;
     }
     else if(rem == 4)
     {
-      newplayerArray1[i]->value = (newplayerArray1[i]->value - 4) / 10;
-      newplayerArray1[i]->suit = 2;
+      playerArray1[i]->value = (playerArray1[i]->value - 4) / 10;
+      playerArray1[i]->suit = 2;
     }
     else if(rem == 3)
     {
-      newplayerArray1[i]->value = (newplayerArray1[i]->value - 3) / 10;
-      newplayerArray1[i]->suit = 1;
+      playerArray1[i]->value = (playerArray1[i]->value - 3) / 10;
+      playerArray1[i]->suit = 1;
     }
     else
     {
-      newplayerArray1[i]->value = (newplayerArray1[i]->value - 2) / 10;
-      newplayerArray1[i]->suit = 0;
+      playerArray1[i]->value = (playerArray1[i]->value - 2) / 10;
+      playerArray1[i]->suit = 0;
     }
 
-    cout<<newplayerArray1[i]->value<<" "<<newplayerArray1[i]->suit<<"  ";
+    cout<<playerArray1[i]->value<<" "<<playerArray1[i]->suit<<"  ";
   }
   cout<<endl;
 
@@ -470,40 +473,40 @@ void LL::deal()
 
   for(int i = 0; i < 10;i++)
   {
-    float rem = newplayerArray2[i]->value % 5;
+    float rem = playerArray2[i]->value % 5;
     //cout<<" rem-"<<rem<<" ";
     if(rem == 0)
     {
-      newplayerArray2[i]->value = (newplayerArray2[i]->value - 5) / 10;
-      newplayerArray2[i]->suit = 3;
+      playerArray2[i]->value = (playerArray2[i]->value - 5) / 10;
+      playerArray2[i]->suit = 3;
     }
     else if(rem == 4)
     {
-      newplayerArray2[i]->value = (newplayerArray2[i]->value - 4) / 10;
-      newplayerArray2[i]->suit = 2;
+      playerArray2[i]->value = (playerArray2[i]->value - 4) / 10;
+      playerArray2[i]->suit = 2;
     }
     else if(rem == 3)
     {
-      newplayerArray2[i]->value = (newplayerArray2[i]->value - 3) / 10;
-      newplayerArray2[i]->suit = 1;
+      playerArray2[i]->value = (playerArray2[i]->value - 3) / 10;
+      playerArray2[i]->suit = 1;
     }
     else
     {
-      newplayerArray2[i]->value = (newplayerArray2[i]->value - 2) / 10;
-      newplayerArray2[i]->suit = 0;
+      playerArray2[i]->value = (playerArray2[i]->value - 2) / 10;
+      playerArray2[i]->suit = 0;
     }
-    cout<<newplayerArray2[i]->value<<" "<<newplayerArray2[i]->suit<<"  ";
+    cout<<playerArray2[i]->value<<" "<<playerArray2[i]->suit<<"  ";
   }
   cout<<endl;
 
-  newplayerArray1[7]->suit = 0;
-  newplayerArray2[7]->suit = 0;
-  newplayerArray1[8]->suit = 0;
-  newplayerArray2[8]->suit = 0;
-  newplayerArray1[9]->suit = 0;
-  newplayerArray2[8]->suit = 0;
+  playerArray1[7]->suit = 0;
+  playerArray2[7]->suit = 0;
+  playerArray1[8]->suit = 0;
+  playerArray2[8]->suit = 0;
+  playerArray1[9]->suit = 0;
+  playerArray2[8]->suit = 0;
 
-  whowins(newplayerArray1, newplayerArray2);
+  whowins(playerArray1, playerArray2);
 
 
   for(int i = 0; i<44;i++)
@@ -511,5 +514,6 @@ void LL::deal()
     deleteAtHead();
   }
   printListstart();
+
 
 }
