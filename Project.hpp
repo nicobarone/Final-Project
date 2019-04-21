@@ -19,7 +19,6 @@ class LL
     }
     void insertend(int value, int suit);
 		void printListstart();
-		void createhands(int* array1, int* array2);
 		void pair(Node *player[]);
 		void twopair(Node *player[]);
 		void threeofakind(Node *player[]);
@@ -44,12 +43,8 @@ class Heap
 
 	Heap(int heapSize);
 	~Heap();
-	void printHeap();
 	void addToHeap (int value);
 	int removeFromHeap();
-	int peekValue();
-	bool isFull();
-	bool isEmpty();
 
 
 	private:
