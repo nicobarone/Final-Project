@@ -1,6 +1,51 @@
 //hello
 
-int Heap::whowins(int player1[], int player2[], int suit1[], int suit2[])
+#include <iostream>
+#include <ctime>    // For time()
+#include <cstdlib>
+#include "Project.hpp"
+
+using namespace std;
+bool pair(Node *player[])
+{
+
+}
+bool twopair(Node *player[])
+{
+
+}
+bool threeofakind(Node *player[])
+{
+
+}
+bool straight(Node *player[])
+{
+
+}
+bool flush(Node *player[])
+{
+
+}
+bool fullhouse(Node *player[])
+{
+
+}
+bool fourofakind(Node *player[])
+{
+
+}
+bool straightflush(Node *player[])
+{
+
+}
+bool checkhighcard(Node *player[], Node *player2[])
+{
+
+}
+
+
+
+void LL::whowins(Node *player1[], Node *player2[])
 {
   int playerval1 = 0;
   int playerval2 = 0;
@@ -37,11 +82,11 @@ int Heap::whowins(int player1[], int player2[], int suit1[], int suit2[])
   {
     playerval2 = 4;
   }
-  if(flush(suit1) == true)
+  if(flush(player1) == true)
   {
     playerval1 = 5;
   }
-  if(flush(suit2) == true)
+  if(flush(player2) == true)
   {
     playerval2 = 5;
   }
@@ -75,22 +120,22 @@ int Heap::whowins(int player1[], int player2[], int suit1[], int suit2[])
     int highcard = checkhighcard(player1,player2);
     if(highcard == 1)
     {
-      return 10;
+      //return 10;
     }
     else
     {
-      return 20
+      //return 20
     }
   }
   else
   {
     if(playerval1 > playerval2)
     {
-      return 10;
+      //return 10;
     }
     else
     {
-      return 20;
+      //return 20;
     }
   }
 }
