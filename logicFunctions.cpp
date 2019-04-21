@@ -24,8 +24,22 @@ void LL::pair(Node *player[])
 
 void LL::twopair(Node *player[])
 {
-
-}
+  int j=0;
+  for(int i=0; i<6; i++){
+    if(player[i]->value == player[i+1]->value){
+      if(j==0){
+        player[7]->suit = player[i]->value;
+        j++;
+      }
+      if(player[7]->suit != player[i]->value){
+        player[7]->value = 2;
+        if(j == 1){
+          player[8]->value = player[i]->value;  
+          j++;
+        }
+      }
+    }
+  }
 void LL::threeofakind(Node *player[])
 {
   for(int i=0; i<5; i++){
