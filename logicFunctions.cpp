@@ -1,5 +1,3 @@
-//hello
-
 #include <iostream>
 #include <ctime>    // For time()
 #include <cstdlib>
