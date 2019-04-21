@@ -57,12 +57,21 @@ void LL::straight(Node *player[])
     }
   }
 }
-void LL::flush(Node *player[])
-{
+void LL::flush(Node *player[]){
+  int count=0;
+  int j=0
   for(int i=0;i<3;i++){
     if(player[i]->suit == player[i+1]->suit && player[i]->suit == player[i+2]->suit && player[i]->suit == player[i+3]->suit && player[i]->suit == player[i+4]->suit){
-        player[8]->value = 9;
+      if(j==0){
+        player[7]->suit = player[i]->value;
+        player[8]->value = player[i+1]->value;
+        player[8]->suit = player[i+2]->value;
+        player[9]->value = player[i+3]->value;
+        player[9]->suit = player[i+4]->value;
+        j++
       }
+      player[7]->value = 9;
+    }
   }
 }
 void LL::fullhouse(Node *player[])
