@@ -71,7 +71,11 @@ void LL::fullhouse(Node *player[])
 }
 void LL::fourofakind(Node *player[])
 {
-
+  for(int i=0; i<4; i++){
+    if(player[i]->value == player[i+1]->value){
+      player[7]->value = 7;
+    }
+  }
 }
 void LL::straightflush(Node *player[])
 {
