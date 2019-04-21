@@ -6,39 +6,39 @@
 #include "Project.hpp"
 
 using namespace std;
-bool pair(Node *player[])
+void LL::pair(Node *player[])
 {
 
 }
-bool twopair(Node *player[])
+void LL::twopair(Node *player[])
 {
 
 }
-bool threeofakind(Node *player[])
+void LL::threeofakind(Node *player[])
 {
 
 }
-bool straight(Node *player[])
+void LL::straight(Node *player[])
 {
 
 }
-bool flush(Node *player[])
+void LL::flush(Node *player[])
 {
 
 }
-bool fullhouse(Node *player[])
+void LL::fullhouse(Node *player[])
 {
 
 }
-bool fourofakind(Node *player[])
+void LL::fourofakind(Node *player[])
 {
 
 }
-bool straightflush(Node *player[])
+void LL::straightflush(Node *player[])
 {
 
 }
-bool checkhighcard(Node *player[], Node *player2[])
+void LL::checkhighcard(Node *player[], Node *player2[])
 {
 
 }
