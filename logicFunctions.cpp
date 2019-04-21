@@ -38,7 +38,11 @@ void LL::straight(Node *player[])
 }
 void LL::flush(Node *player[])
 {
-
+  for(int i=0;i<3;i++){
+    if(player[i]->suit == player[i+1]->suit && player[i]->suit == player[i+2]->suit && player[i]->suit == player[i+3]->suit && player[i]->suit == player[i+4]->suit){
+        player[8]->value = 9;
+      }
+  }
 }
 void LL::fullhouse(Node *player[])
 {
@@ -50,7 +54,13 @@ void LL::fourofakind(Node *player[])
 }
 void LL::straightflush(Node *player[])
 {
-
+  for(int i=0;i<3;i++){
+    if((player[i]->value)+1 == player[i+1]->value && (player[i]->value)+2 == player[i+2]->value && (player[i]->value)+3 == player[i+3]->value && (player[i]->value)+4 == player[i+4]->value){
+      if(player[i]->suit == player[i+1]->suit && player[i]->suit == player[i+2]->suit && player[i]->suit == player[i+3]->suit && player[i]->suit == player[i+4]->suit){
+        player[8]->value = 9;
+      }
+    }
+  }
 }
 void LL::checkhighcard(Node *player[], Node *player2[])
 {
