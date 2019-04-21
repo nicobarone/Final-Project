@@ -32,7 +32,7 @@ class LL
 		void whowins(Node *player1[], Node *player2[]);
 		void deleteAtIndex(int n);
 		void deleteAtHead();
-		void deal();
+		void deal(Node *playerArray1[], Node *playerArray2[]);
 };
 
 #ifndef HEAP_HPP
