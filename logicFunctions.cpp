@@ -8,13 +8,20 @@
 using namespace std;
 void LL::pair(Node *player[])
 {
+  int j=0;
   for(int i=0; i<6; i++){
     if(player[i]->value == player[i+1]->value){
-      player[8]->value = 1;
+      if(j==0){
+        player[7]->suit = player[i]->value;
+        j = 1;
+      }
+      player[7]->value = 1;
     }
   }
-  cout<<player[8->value];
+  cout<<player[7]->value;
+  cout<<player[7]->suit;
 }
+
 void LL::twopair(Node *player[])
 {
 
