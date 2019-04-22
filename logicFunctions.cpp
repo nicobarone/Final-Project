@@ -220,6 +220,8 @@ void LL::fourofakind(Node *player[])
 }
 void LL::straightflush(Node *player[])
 {
+  int x = player[7]->value;
+  int t = player[7]->suit;
   int count0=0,count1=0,count2=0,count3=0;
   int w = 4;
   for(int q=0;q<7;q++){
@@ -251,8 +253,6 @@ void LL::straightflush(Node *player[])
   if(w != 4){
     int k=0;
     int m=0;
-    int x = player[7]->value;
-    int t = player[7]->suit;
     int y = player[8]->value;
     player[8]->value = 100;
     for(int i=0; i<3; i++){
@@ -301,7 +301,7 @@ void LL::straightflush(Node *player[])
   }
   if(player[7]->value != 8){
     player[7]->value = x;
-    player[7]->value = t;
+    player[7]->suit = t;
   }
   player[8]->value = y;
   }
