@@ -19,7 +19,7 @@ void LL::printCommunity(Node *communityCards[], int i){
   }
   else{
     cout<<" "<<communityCards[i]->value;
-  } 
+  }
 
   cout<< " of ";
 
@@ -51,7 +51,7 @@ void LL::printHand(Node *firsttwo[]){
   }
   else{
     cout<<" "<<firsttwo[0]->value;
-  } 
+  }
 
   cout<< " of ";
 
@@ -85,7 +85,7 @@ void LL::printHand(Node *firsttwo[]){
   }
   else{
     cout<<firsttwo[1]->value;
-  } 
+  }
 
 
   cout<< " of ";
@@ -105,6 +105,7 @@ void LL::printHand(Node *firsttwo[]){
   }
   cout<<endl;
   cout<<"Don't forget them :)";
+  cout<<endl;
 }
 
 void LL::insertend(int v, int s){
