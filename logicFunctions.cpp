@@ -309,12 +309,6 @@ void LL::straightflush(Node *player[])
   cout<<player[7]->value<<endl;
   cout<<player[7]->suit<<endl<<endl;
 }
-void LL::checkhighcard(Node *player[], Node *player2[])
-{
-
-}
-
-
 
 void LL::whowins(Node *player1[], Node *player2[])
 {
