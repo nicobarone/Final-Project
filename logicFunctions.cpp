@@ -18,8 +18,8 @@ void LL::pair(Node *player[])
       player[7]->value = 1;
     }
   }
-  cout<<player[7]->value<<endl;
-  cout<<player[7]->suit<<endl;
+  //cout<<player[7]->value<<endl;
+  //cout<<player[7]->suit<<endl;
 }
 
 void LL::twopair(Node *player[])
@@ -64,7 +64,6 @@ void LL::threeofakind(Node *player[])
 }
 
 
-
 void LL::straight(Node *player[])
 {
   int k=0;
@@ -89,30 +88,11 @@ void LL::straight(Node *player[])
     }
     i=m;
   }
-  if((player[7]->value != 4) && (player[1]->value == 14)){
-    int x = player[7]->value;
-    player[7]->value = 1;
-    int p = 4;
-    int n = 0;
-    while(player[p+1]->value == (player[p]->value-1) || player[p+1]->value == player[p]->value){
-      if(player[p+1]->value != player[p]->value){
-        n++;
-      }
-      p++;
-      if(n == 4){
-        player[7]->value = 4;
-        k=1;
-        break;
-      }
-    }
-    if(k == 1){
-      player[7]->suit = player[3]->value;
-    }
-  }
   cout<<"???????????????????????"<<endl;
   cout<<player[7]->value<<endl;
   cout<<player[7]->suit<<endl<<endl;
 }
+
 void LL::flush(Node *player[]){
   int count0=0,count1=0,count2=0,count3=0;
   int j=4;
@@ -242,7 +222,7 @@ void LL::straightflush(Node *player[])
       }
     }
   }
-  cout<<player[7]->value<<endl;
+  //cout<<player[7]->value<<endl;
 }
 void LL::checkhighcard(Node *player[], Node *player2[])
 {
@@ -277,7 +257,7 @@ void LL::whowins(Node *player1[], Node *player2[])
   playeroof2[4]->value = 6;
   playeroof2[4]->suit = 1;
   playeroof2[5] = new Node;
-  playeroof2[5]->value = 5;
+  playeroof2[5]->value = 3;
   playeroof2[5]->suit = 0;
   playeroof2[6] = new Node;
   playeroof2[6]->value = 2;
@@ -320,5 +300,325 @@ void LL::whowins(Node *player1[], Node *player2[])
   straightflush(player1);
   straightflush(player2);
 
+  if(player1[7]->value > player2[7]->value)
+  {
+    player1[7]->value = 100;
+    cout<<"Player 1 wins"<<endl;
+  }
+  else if (player2[7]->value > player1[7]->value)
+  {
+    player2[7]->value = 100;
+    cout<<"Player 2 wins"<<endl;
+  }
+  else if (player1[7]->value == player2[7]->value)
+  {
+    if (player1[7]->value == 0)
+    {
+      for (int i = 0; i < 5;i++)
+      {
+        if(player1[i]->value > player2[i]->value)
+        {
+          player1[7]->value = 100;
+          cout<<"Player 1 wins"<<endl;
+          break;
+        }
+        else if(player1[i]->value < player2[i]->value)
+        {
+          player2[7]->value = 100;
+          cout<<"Player 2 wins"<<endl;
+          break;
+        }
+        else
+        {
+          if (i == 5)
+          {
+            cout<<"Tie "<<endl;
+            player1[7]->value = 200;
+            break;
+          }
+        }
+      }
+    }
+    else if (player1[7]->value == 1)
+    {
+      if (player1[7]->suit > player2[7]->suit)
+      {
+        player1[7]->value = 100;
+        cout<<"Player 1 wins"<<endl;
+      }
+      else if (player1[7]->suit < player2[7]->suit)
+      {
+        player2[7]->value = 100;
+        cout<<"Player 2 wins"<<endl;
+      }
+      else
+      {
+        for (int i = 0; i < 5;i++)
+        {
+          if(player1[i]->value > player2[i]->value)
+          {
+            player1[7]->value = 100;
+            cout<<"Player 1 wins"<<endl;
+            break;
+          }
+          else if(player1[i]->value < player2[i]->value)
+          {
+            player2[7]->value = 100;
+            cout<<"Player 2 wins"<<endl;
+            break;
+          }
+          else
+          {
+            if (i == 5)
+            {
+              cout<<"Tie "<<endl;
+              player1[7]->value = 200;
+              break;
+            }
+          }
+        }
+      }
+    }
+    else if (player1[7]->value == 2)
+    {
+      if (player1[7]->suit > player2[7]->suit)
+      {
+        player1[7]->value = 100;
+        cout<<"Player 1 wins"<<endl;
+      }
+      else if (player1[7]->suit < player2[7]->suit)
+      {
+        player2[7]->value = 100;
+        cout<<"Player 2 wins"<<endl;
+      }
+      else if (player1[8]->value > player2[8]->value)
+      {
+        player1[7]->value = 100;
+        cout<<"Player 1 wins"<<endl;
+      }
+      else if (player1[8]->value < player2[8]->value)
+      {
+        player2[7]->value = 100;
+        cout<<"Player 2 wins"<<endl;
+      }
+      else
+      {
+        for (int i = 0; i < 5;i++)
+        {
+          if(player1[i]->value > player2[i]->value)
+          {
+            player1[7]->value = 100;
+            cout<<"Player 1 wins"<<endl;
+            break;
+          }
+          else if(player1[i]->value < player2[i]->value)
+          {
+            player2[7]->value = 100;
+            cout<<"Player 2 wins"<<endl;
+            break;
+          }
+          else
+          {
+            if (i == 5)
+            {
+              cout<<"Tie "<<endl;
+              player1[7]->value = 200;
+              break;
+            }
+          }
+        }
+      }
 
+    }
+    else if (player1[7]->value == 3)
+    {
+      if (player1[7]->suit > player2[7]->suit)
+      {
+        player1[7]->value = 100;
+        cout<<"Player 1 wins"<<endl;
+      }
+      else if (player1[7]->suit < player2[7]->suit)
+      {
+        player2[7]->value = 100;
+        cout<<"Player 2 wins"<<endl;
+      }
+      else
+      {
+        for (int i = 0; i < 5;i++)
+        {
+          if(player1[i]->value > player2[i]->value)
+          {
+            player1[7]->value = 100;
+            cout<<"Player 1 wins"<<endl;
+            break;
+          }
+          else if(player1[i]->value < player2[i]->value)
+          {
+            player2[7]->value = 100;
+            cout<<"Player 2 wins"<<endl;
+            break;
+          }
+          else
+          {
+            if (i == 5)
+            {
+              cout<<"Tie "<<endl;
+              player1[7]->value = 200;
+              break;
+            }
+          }
+        }
+      }
+    }
+    else if (player1[7]->value == 4)
+    {
+      if (player1[7]->suit > player2[7]->suit)
+      {
+        player1[7]->value = 100;
+        cout<<"Player 1 wins"<<endl;
+      }
+      else if (player1[7]->suit < player2[7]->suit)
+      {
+        player2[7]->value = 100;
+        cout<<"Player 2 wins"<<endl;
+      }
+      else
+      {
+        cout<<"Tie "<<endl;
+        player1[7]->value = 200;
+      }
+    }
+    else if (player1[7]->value == 5)
+    {
+      if (player1[7]->suit > player2[7]->suit)
+      {
+        player1[7]->value = 100;
+        cout<<"Player 1 wins"<<endl;
+      }
+      else if (player1[7]->suit < player2[7]->suit)
+      {
+        player2[7]->value = 100;
+        cout<<"Player 2 wins"<<endl;
+      }
+      else
+      {
+        if (player1[8]->value > player2[8]->value)
+        {
+          player1[7]->value = 100;
+          cout<<"Player 1 wins"<<endl;
+        }
+        else if (player1[8]->value < player2[8]->value)
+        {
+          player2[7]->value = 100;
+          cout<<"Player 2 wins"<<endl;
+        }
+        else
+        {
+          if (player1[8]->suit > player2[8]->suit)
+          {
+            player1[7]->value = 100;
+            cout<<"Player 1 wins"<<endl;
+          }
+          else if (player1[8]->suit < player2[8]->suit)
+          {
+            player2[7]->value = 100;
+            cout<<"Player 2 wins"<<endl;
+          }
+          else
+          {
+            if (player1[9]->value > player2[9]->value)
+            {
+              player1[7]->value = 100;
+              cout<<"Player 1 wins"<<endl;
+            }
+            else if (player1[9]->value < player2[9]->value)
+            {
+              player2[7]->value = 100;
+              cout<<"Player 2 wins"<<endl;
+            }
+            else
+            {
+              if (player1[9]->suit > player2[9]->suit)
+              {
+                player1[7]->value = 100;
+                cout<<"Player 1 wins"<<endl;
+              }
+              else if (player1[9]->suit < player2[9]->suit)
+              {
+                player2[7]->value = 100;
+                cout<<"Player 2 wins"<<endl;
+              }
+              else
+              {
+                cout<<"Tie "<<endl;
+                player1[7]->value = 200;
+              }
+            }
+          }
+        }
+      }
+    }
+    else if (player1[7]->value == 6)
+    {
+
+    }
+    else if (player1[7]->value == 7)
+    {
+
+    }
+    else if (player1[7]->value == 8)
+    {
+
+    }
+  }
 }
+
+/*
+void LL::straight(Node *player[])
+{
+  int k=0;
+  int m=0;
+  for(int i=0; i<3; i++){
+    int j=0;
+    m = i;
+    while(player[i+1]->value == (player[i]->value-1) || player[i+1]->value == player[i]->value){
+      if(player[i+1]->value != player[i]->value){
+        j++;
+      }
+      i++;
+      if(j == 4){
+        player[7]->value = 4;
+        k=1;
+        break;
+      }
+    }
+    if(k == 1){
+      player[7]->suit = player[m]->value;
+      break;
+    }
+    i=m;
+  }
+  if((player[7]->value != 4) && (player[1]->value == 14)){
+    int x = player[7]->value;
+    player[7]->value = 1;
+    int p = 4;
+    int n = 0;
+    while(player[p+1]->value == (player[p]->value-1) || player[p+1]->value == player[p]->value){
+      if(player[p+1]->value != player[p]->value){
+        n++;
+      }
+      p++;
+      if(n == 4){
+        player[7]->value = 4;
+        k=1;
+        break;
+      }
+    }
+    if(k == 1){
+      player[7]->suit = player[3]->value;
+    }
+  }
+  cout<<"???????????????????????"<<endl;
+  cout<<player[7]->value<<endl;
+  cout<<player[7]->suit<<endl<<endl;
+}*/
