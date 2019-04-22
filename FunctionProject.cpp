@@ -4,8 +4,108 @@
 #include "Project.hpp"
 
 using namespace std;
+void LL::printCommunity(Node *communityCards[], int i){
+  if(communityCards[i]->value == 11){
+    cout<<" Jack";
+  }
+  else if(communityCards[i]->value == 12){
+    cout<<" Queen";
+  }
+  else if(communityCards[i]->value == 13){
+    cout<<" King";
+  }
+  else if(communityCards[i]->value == 14){
+    cout<<" Ace";
+  }
+  else{
+    cout<<" "<<communityCards[i]->value;
+  } 
+
+  cout<< " of ";
+
+  if(communityCards[i]->suit == 0){
+    cout<<"Hearts"<<endl;
+  }
+  else if(communityCards[i]->suit == 1){
+    cout<<"Diamonds"<<endl;
+  }
+  else if(communityCards[i]->suit == 2){
+    cout<<"Spades"<<endl;
+  }
+  else if(communityCards[i]->suit == 3){
+    cout<<"Clubs"<<endl;
+  }
+}
+void LL::printHand(Node *firsttwo[]){
+  if(firsttwo[0]->value == 11){
+    cout<<" Jack";
+  }
+  else if(firsttwo[0]->value == 12){
+    cout<<" Queen";
+  }
+  else if(firsttwo[0]->value == 13){
+    cout<<" King";
+  }
+  else if(firsttwo[0]->value == 14){
+    cout<<" Ace";
+  }
+  else{
+    cout<<" "<<firsttwo[0]->value;
+  } 
+
+  cout<< " of ";
+
+  if(firsttwo[0]->suit == 0){
+    cout<<"Hearts";
+  }
+  else if(firsttwo[0]->suit == 1){
+    cout<<"Diamonds";
+  }
+  else if(firsttwo[0]->suit == 2){
+    cout<<"Spades";
+  }
+  else if(firsttwo[0]->suit == 3){
+    cout<<"Clubs";
+  }
+  cout<<"  and  ";
 
 
+
+  if(firsttwo[1]->value == 11){
+    cout<<"Jack";
+  }
+  else if(firsttwo[1]->value == 12){
+    cout<<"Queen";
+  }
+  else if(firsttwo[1]->value == 13){
+    cout<<"King";
+  }
+  else if(firsttwo[1]->value == 14){
+    cout<<"Ace";
+  }
+  else{
+    cout<<firsttwo[1]->value;
+  } 
+
+
+  cout<< " of ";
+
+
+  if(firsttwo[1]->suit == 0){
+    cout<<"Hearts"<<endl;
+  }
+  else if(firsttwo[1]->suit == 1){
+    cout<<"Diamonds"<<endl;
+  }
+  else if(firsttwo[1]->suit == 2){
+    cout<<"Spades"<<endl;
+  }
+  else if(firsttwo[1]->suit == 3){
+    cout<<"Clubs"<<endl;
+  }
+  cout<<endl;
+  cout<<"Don't forget them :)";
+}
 
 void LL::insertend(int v, int s){
   //1. ALLOCATE NODE
@@ -128,8 +228,8 @@ void LL::deleteAtIndex(int n)
 
   }
 
-	Node *pres = head;
-	Node *prev = NULL;
+  Node *pres = head;
+  Node *prev = NULL;
   for(int i = 0;i<n;i++)
   {
     prev = pres;
@@ -156,14 +256,14 @@ void LL::deleteAtHead()
   }
 
   Node *temp = head;
-	head = temp->next;
-	delete temp;
+  head = temp->next;
+  delete temp;
 
 }
 
 
 
-void LL::deal(Node *playerArray1[], Node *playerArray2[])
+void LL::deal(Node *playerArray1[], Node *playerArray2[], Node *communityCards[], Node *firsttwo1[], Node *firsttwo2[])
 {
   //Deal
     srand(time(0));  // Initialize random number generator.
@@ -185,6 +285,9 @@ void LL::deal(Node *playerArray1[], Node *playerArray2[])
           playerArray1[i] = new Node;
           playerArray1[i]->value = temp->value;
           playerArray1[i]->suit = temp->suit;
+          firsttwo1[i] = new Node;
+          firsttwo1[i]->value = temp->value;
+          firsttwo1[i]->suit = temp->suit;
           if(r==1){
             deleteAtHead();
           }
@@ -207,6 +310,9 @@ void LL::deal(Node *playerArray1[], Node *playerArray2[])
           playerArray2[i] = new Node;
           playerArray2[i]->value = temp->value;
           playerArray2[i]->suit = temp->suit;
+          firsttwo2[i] = new Node;
+          firsttwo2[i]->value = temp->value;
+          firsttwo2[i]->suit = temp->suit;
           if(r==1){
             deleteAtHead();
           }
@@ -231,6 +337,9 @@ void LL::deal(Node *playerArray1[], Node *playerArray2[])
           playerArray2[i] = new Node;
           playerArray2[i]->value = temp->value;
           playerArray2[i]->suit = temp->suit;
+          communityCards[i-2] = new Node;
+          communityCards[i-2]->value = temp->value;
+          communityCards[i-2]->suit = temp->suit;
           if(r==1){
             deleteAtHead();
           }
@@ -423,5 +532,5 @@ void LL::deal(Node *playerArray1[], Node *playerArray2[])
   {
     deleteAtHead();
   }
-  printListstart();
+  //printListstart();
 }
