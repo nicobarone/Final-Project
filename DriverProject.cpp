@@ -35,7 +35,7 @@ int main()
     Node **communityCards = new Node*[5];
     Node **firsttwo1 = new Node*[2];
     Node **firsttwo2 = new Node*[2];
-    ll.deal(playerArray1, playerArray2, communityCards, firsttwo1, firsttwo2);    
+    ll.deal(playerArray1, playerArray2, communityCards, firsttwo1, firsttwo2);
 
     cout<<endl<<endl;
     cout<<" New Hand  "<<endl;
@@ -173,11 +173,19 @@ int main()
           cout<<" 3. Fold"<<endl;
           cin >> t;
           if(t == 1){
-            if(chips2 <= v && chips2 != 0){
-              pot = pot + chips2;
-              chips2 = 0;
-              cout<<" Player 2 is ALL INN!!!"<<endl;
+            if(chips1 <= v && chips1 != 0){
+              pot = pot + chips1;
+              chips1 = 0;
+              cout<<" Player 1 is ALL INN!!!"<<endl;
               cout<<" Pot is "<<pot;
+              run = false;
+              break;
+            }
+            else{
+              cout << "Player 1 calls "<<endl;
+              pot = pot + chips1;
+              chips1 = chips1 - v;
+              cout<< " Pot is "<<pot<<endl;
               run = false;
               break;
             }
@@ -469,7 +477,7 @@ int main()
     cout<<endl;
     cout<<"Player 1's Chips: "<<chips1<<endl;
     cout<<"Player 2's Chips: "<<chips2<<endl;
-    
+
     run = true;
     v = 0;
     t = 0;
@@ -599,11 +607,19 @@ int main()
           cout<<" 3. Fold"<<endl;
           cin >> t;
           if(t == 1){
-            if(chips2 <= v && chips2 != 0){
-              pot = pot + chips2;
-              chips2 = 0;
-              cout<<" Player 2 is ALL INN!!!"<<endl;
+            if(chips1 <= v && chips1 != 0){
+              pot = pot + chips1;
+              chips1 = 0;
+              cout<<" Player 1 is ALL INN!!!"<<endl;
               cout<<" Pot is "<<pot;
+              run = false;
+              break;
+            }
+            else{
+              cout << "Player 1 calls "<<endl;
+              pot = pot + chips1;
+              chips1 = chips1 - v;
+              cout<< " Pot is "<<pot<<endl;
               run = false;
               break;
             }
@@ -682,7 +698,7 @@ int main()
     cout<<endl;
     cout<<"Player 1's Chips: "<<chips1<<endl;
     cout<<"Player 2's Chips: "<<chips2<<endl;
-    
+
     run = true;
     v = 0;
     t = 0;
@@ -812,11 +828,19 @@ int main()
           cout<<" 3. Fold"<<endl;
           cin >> t;
           if(t == 1){
-            if(chips2 <= v && chips2 != 0){
-              pot = pot + chips2;
-              chips2 = 0;
-              cout<<" Player 2 is ALL INN!!!"<<endl;
+            if(chips1 <= v && chips1 != 0){
+              pot = pot + chips1;
+              chips1 = 0;
+              cout<<" Player 1 is ALL INN!!!"<<endl;
               cout<<" Pot is "<<pot;
+              run = false;
+              break;
+            }
+            else{
+              cout << "Player 1 calls "<<endl;
+              pot = pot + chips1;
+              chips1 = chips1 - v;
+              cout<< " Pot is "<<pot<<endl;
               run = false;
               break;
             }
