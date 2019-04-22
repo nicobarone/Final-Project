@@ -29,7 +29,6 @@ class LL
 		void fullhouse(Node *player[]);
 		void fourofakind(Node *player[]);
 		void straightflush(Node *player[]);
-		void checkhighcard(Node *player[], Node *player2[]);
 		void whowins(Node *player1[], Node *player2[]);
 		void deleteAtIndex(int n);
 		void deleteAtHead();
