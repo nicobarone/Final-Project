@@ -1,5 +1,3 @@
-//hello
-
 #include <iostream>
 #include <ctime>    // For time()
 #include <cstdlib>
@@ -261,7 +259,7 @@ void LL::straightflush(Node *player[])
       int j=0;
       m = i;
     while(player[i+1]->value == (player[i]->value-1) || player[i+1]->value == player[i]->value){
-      if(player[i+1]->value != player[i]->value && player[i]->suit == w){
+      if(player[i+1]->value == (player[i]->value-1) && player[i]->suit == w){
         j++;
       }
       i++;
@@ -284,7 +282,7 @@ void LL::straightflush(Node *player[])
       int n = 0;
       z=p;
       while(player[p+1]->value == (player[p]->value-1) || player[p+1]->value == player[p]->value){
-        if((player[p+1]->value != player[p]->value) && player[p]->suit == w){
+        if(player[p+1]->value == (player[p]->value-1) && player[p]->suit == w){
             n++;
         }
         p++;
