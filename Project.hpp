@@ -19,6 +19,8 @@ class LL
     }
     void insertend(int value, int suit);
 		void printListstart();
+		void printHand(Node *firsttwo[]);
+		void printCommunity(Node *communityCards[], int i);
 		void pair(Node *player[]);
 		void twopair(Node *player[]);
 		void threeofakind(Node *player[]);
@@ -31,7 +33,7 @@ class LL
 		void whowins(Node *player1[], Node *player2[]);
 		void deleteAtIndex(int n);
 		void deleteAtHead();
-		void deal(Node *playerArray1[], Node *playerArray2[]);
+		void deal(Node *playerArray1[], Node *playerArray2[], Node *communityCards[], Node *firsttwo1[], Node *firsttwo2[]);
 };
 
 #ifndef HEAP_HPP
