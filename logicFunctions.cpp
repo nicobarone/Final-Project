@@ -68,6 +68,9 @@ void LL::straight(Node *player[])
 {
   int k=0;
   int m=0;
+  int x = player[7]->value;
+  int y = player[8]->value;
+  player[8]->value = 100;
   for(int i=0; i<3; i++){
     int j=0;
     m = i;
@@ -88,6 +91,34 @@ void LL::straight(Node *player[])
     }
     i=m;
   }
+  if((player[7]->value != 4) && (player[0]->value == 14)){
+    player[7]->value = 1;
+    int z = 0,g=0;
+    for(int p=0;p<4;p++){
+      int n = 0;
+      z=p;
+      while(player[p+1]->value == (player[p]->value-1) || player[p+1]->value == player[p]->value){
+        if(player[p+1]->value != player[p]->value){
+          n++;
+        }
+        p++;
+        if(n == 4){
+          player[7]->value = 4;
+          g=1;
+          break;
+        }
+      }
+      if(g == 1){
+        player[7]->suit = player[3]->value;
+        break;
+      }
+      p=z;
+    }
+  }
+  if(player[7]->value != 4){
+    player[7]->value = x;
+  }
+  player[8]->value = y;
   cout<<"???????????????????????"<<endl;
   cout<<player[7]->value<<endl;
   cout<<player[7]->suit<<endl<<endl;
