@@ -353,7 +353,7 @@ void LL::deal(Node *playerArray1[], Node *playerArray2[], Node *communityCards[]
       }
   }
 
-  cout<<"player 1 hand"<<endl;
+  /*cout<<"player 1 hand"<<endl;
 
   for(int i = 0; i<7;i++)
   {
@@ -365,7 +365,7 @@ void LL::deal(Node *playerArray1[], Node *playerArray2[], Node *communityCards[]
   {
     cout<<playerArray2[i]->value<<" "<<playerArray2[i]->suit<<endl;
   }
-
+  */
   int testarray[7];
   int testarray2[7];
 
