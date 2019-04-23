@@ -1,3 +1,4 @@
+// Logic to decide who wins in a turn by comparing the hands
 #include <iostream>
 #include <ctime>    // For time()
 #include <cstdlib>
@@ -13,7 +14,7 @@ void LL::pair(Node *player[])
         player[7]->suit = player[i]->value;
         j = 1;
       }
-      player[7]->value = 1;
+      player[7]->value = 1; // store a 1 if a pair is found
     }
   }
 }
@@ -310,7 +311,7 @@ void LL::straightflush(Node *player[])
   cout<<player[7]->suit<<endl<<endl;
 }
 
-void LL::whowins(Node *player1[], Node *player2[])
+void LL::whowins(Node *player1[], Node *player2[]) // runs through all the possible hands
 {
 
   pair(player1);
@@ -337,7 +338,7 @@ void LL::whowins(Node *player1[], Node *player2[])
   straightflush(player1);
   straightflush(player2);
 
-  if(player1[7]->value > player2[7]->value)
+  if(player1[7]->value > player2[7]->value) // comparing the hands
   {
     player1[7]->value = 100;
     cout<<"Player 1 wins"<<endl;
@@ -347,9 +348,9 @@ void LL::whowins(Node *player1[], Node *player2[])
     player2[7]->value = 100;
     cout<<"Player 2 wins"<<endl;
   }
-  else if (player1[7]->value == player2[7]->value)
+  else if (player1[7]->value == player2[7]->value) // if the hands are the same
   {
-    if (player1[7]->value == 0)
+    if (player1[7]->value == 0) // high card
     {
       for (int i = 0; i < 5;i++)
       {
@@ -376,7 +377,7 @@ void LL::whowins(Node *player1[], Node *player2[])
         }
       }
     }
-    else if (player1[7]->value == 1)
+    else if (player1[7]->value == 1) // pair
     {
       if (player1[7]->suit > player2[7]->suit)
       {
@@ -416,7 +417,7 @@ void LL::whowins(Node *player1[], Node *player2[])
         }
       }
     }
-    else if (player1[7]->value == 2)
+    else if (player1[7]->value == 2) // two pair
     {
       if (player1[7]->suit > player2[7]->suit)
       {
@@ -467,7 +468,7 @@ void LL::whowins(Node *player1[], Node *player2[])
       }
 
     }
-    else if (player1[7]->value == 3)
+    else if (player1[7]->value == 3) // three of a kind
     {
       if (player1[7]->suit > player2[7]->suit)
       {
@@ -507,7 +508,7 @@ void LL::whowins(Node *player1[], Node *player2[])
         }
       }
     }
-    else if (player1[7]->value == 4)
+    else if (player1[7]->value == 4) // straight
     {
       if (player1[7]->suit > player2[7]->suit)
       {
@@ -525,7 +526,7 @@ void LL::whowins(Node *player1[], Node *player2[])
         player1[7]->value = 200;
       }
     }
-    else if (player1[7]->value == 5)
+    else if (player1[7]->value == 5) // flush
     {
       if (player1[7]->suit > player2[7]->suit)
       {
@@ -595,7 +596,7 @@ void LL::whowins(Node *player1[], Node *player2[])
         }
       }
     }
-    else if (player1[7]->value == 6)
+    else if (player1[7]->value == 6) // full house
     {
       if (player1[7]->suit > player2[7]->suit)
       {
@@ -626,7 +627,7 @@ void LL::whowins(Node *player1[], Node *player2[])
         }
       }
     }
-    else if (player1[7]->value == 7)
+    else if (player1[7]->value == 7) // 4 of a kind
     {
       if (player1[7]->suit > player2[7]->suit)
       {
@@ -666,7 +667,7 @@ void LL::whowins(Node *player1[], Node *player2[])
         }
       }
     }
-    else if (player1[7]->value == 8)
+    else if (player1[7]->value == 8) // straight flush
     {
       if (player1[7]->suit > player2[7]->suit)
       {
