@@ -1,3 +1,4 @@
+// Functions that are used to deal cards, create max heaps, linked lists, and other print statements
 #include <iostream>
 #include <ctime>    // For time()
 #include <cstdlib>
@@ -103,9 +104,7 @@ void LL::printHand(Node *firsttwo[]){
   else if(firsttwo[1]->suit == 3){
     cout<<"Clubs"<<endl;
   }
-  cout<<endl;
-  cout<<"Don't forget them :)";
-  cout<<endl;
+  
 }
 
 void LL::insertend(int v, int s){
@@ -290,7 +289,7 @@ void LL::deal(Node *playerArray1[], Node *playerArray2[], Node *communityCards[]
           firsttwo1[i]->value = temp->value;
           firsttwo1[i]->suit = temp->suit;
           if(r==1){
-            deleteAtHead();
+            deleteAtHead(); // deleting from deck
           }
           else{
             deleteAtIndex(r-1);
@@ -353,7 +352,7 @@ void LL::deal(Node *playerArray1[], Node *playerArray2[], Node *communityCards[]
       }
   }
 
-  /*cout<<"player 1 hand"<<endl;
+  cout<<"player 1 hand"<<endl;
 
   for(int i = 0; i<7;i++)
   {
@@ -365,8 +364,8 @@ void LL::deal(Node *playerArray1[], Node *playerArray2[], Node *communityCards[]
   {
     cout<<playerArray2[i]->value<<" "<<playerArray2[i]->suit<<endl;
   }
-  */
-  int testarray[7];
+
+  int testarray[7]; // in order to sort and keep the suit with value
   int testarray2[7];
 
   for(int i =0; i < 7;i++)
@@ -412,7 +411,7 @@ void LL::deal(Node *playerArray1[], Node *playerArray2[], Node *communityCards[]
 
   cout<<endl;
 
-  Heap p1(20);
+  Heap p1(20); // max heaps used for sorting
   Heap p2(20);
 
 
@@ -531,7 +530,7 @@ void LL::deal(Node *playerArray1[], Node *playerArray2[], Node *communityCards[]
 
   for(int i = 0; i<44;i++)
   {
-    deleteAtHead();
+    deleteAtHead(); // delets the whole list of cards in order to create a new one for next turn
   }
   //printListstart();
 }
