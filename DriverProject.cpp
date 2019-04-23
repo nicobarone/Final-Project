@@ -1,3 +1,4 @@
+// Driver for our poker game
 #include <iostream>
 #include "Project.hpp"
 #include <ctime>    // For time()
@@ -32,7 +33,7 @@ int main()
     }
     ll.insertend(0,0);
     //ll.printListstart();
-    Node **playerArray1 = new Node*[10];
+    Node **playerArray1 = new Node*[10]; //arrays to store the values and suits
     Node **playerArray2 = new Node*[10];
     Node **communityCards = new Node*[5];
     Node **firsttwo1 = new Node*[2];
@@ -1128,7 +1129,7 @@ int main()
     cout<<endl;
     cout<<" Would you like to play another turn? (1 = yes / 2 = no) "<<endl;
     cin >> turn;
-    if (turn == 1)
+    if (turn == 1 && chips1 > 0 && chips2 > 0)
     {
       turnend2 = 1;
       turnend1 = 0;
@@ -2255,7 +2256,7 @@ int main()
     cout<<endl;
     cout<<" Would you like to play another turn? (1 = yes / 2 = no) "<<endl;
     cin >> turn;
-    if (turn == 1)
+    if (turn == 1 && chips1 > 0 && chips2 > 0)
     {
       turnend1 = 1;
       turnend2 = 0;
