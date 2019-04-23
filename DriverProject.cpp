@@ -7,13 +7,10 @@ using namespace std;
 
 int main()
 {
-  cout<<" ------Welcome to Heads up Poker ------"<<endl;
-  cout<<endl;
-  cout<<" Each player will start with 500 chips "<<endl;
   bool turnend = 1;
   int chips1 = 500;
   int chips2 = 500;
-
+  int countFun = 0;
 
   while(turnend == 1)//turn if player 1 started
   {
@@ -38,10 +35,17 @@ int main()
     Node **firsttwo2 = new Node*[2];
     ll.deal(playerArray1, playerArray2, communityCards, firsttwo1, firsttwo2);
 
-    cout<<endl<<endl;
-    cout<<" New Hand  "<<endl;
-    cout<<" Each player enter 10 chips into the pot "<<endl;
-
+    cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
+    cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
+    cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
+    if(countFun == 0){      
+      cout<<" ------Welcome to Heads up Poker ------"<<endl;
+      cout<<endl;
+      cout<<" Each player started with 500 chips "<<endl;
+      cout<<" New Hand  "<<endl;
+      cout<<" Each player enter 10 chips into the pot "<<endl;
+      countFun++;
+    }
     chips1 = chips1 - 10;
     chips2 = chips2 - 10;
     pot = pot + 20;
@@ -66,6 +70,9 @@ int main()
         case '1':
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
           ll.printHand(firsttwo1);
+          cout<<endl;
+          cout<<" Don't forget them :)";
+          cout<<endl;
           cout<< " Enter 1 to continue "<<endl;
           cin >> r;
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
@@ -115,6 +122,9 @@ int main()
         case '1'://Look at cards
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
           ll.printHand(firsttwo2);
+          cout<<endl;
+          cout<<" Don't forget them :)";
+          cout<<endl;
           cout<<endl;
           cout<< " Enter 1 to continue "<<endl;
           cin >> r;
@@ -302,13 +312,16 @@ int main()
       {
         case '1':
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
-          cout<<" Community Cards"<<endl;
+          cout<<" Community Cards:"<<endl;
           cout<<endl<<endl;
           ll.printCommunity(communityCards, 0);
           ll.printCommunity(communityCards, 1);
           ll.printCommunity(communityCards, 2);
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
           ll.printHand(firsttwo1);
+          cout<<endl;
+          cout<<" Don't forget them :)";
+          cout<<endl;
           cout<< " Enter 1 to continue "<<endl;
           cin >> r;
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
@@ -362,13 +375,16 @@ int main()
       {
         case '1'://Look at cards
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
-          cout<<" Community Cards"<<endl;
+          cout<<" Community Cards:"<<endl;
           cout<<endl<<endl;
           ll.printCommunity(communityCards, 0);
           ll.printCommunity(communityCards, 1);
           ll.printCommunity(communityCards, 2);
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
           ll.printHand(firsttwo2);
+          cout<<endl;
+          cout<<" Don't forget them :)";
+          cout<<endl;
           cout<<endl;
           cout<< " Enter 1 to continue "<<endl;
           cin >> r;
@@ -524,6 +540,7 @@ int main()
 
     if(fold == 0){
       run = true;
+      cout<<"----------------------------------------------------------------------------------"<<endl<<endl;
       ll.printCommunity(communityCards, 0);
       ll.printCommunity(communityCards, 1);
       ll.printCommunity(communityCards, 2);
@@ -555,7 +572,7 @@ int main()
       {
         case '1':
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
-          cout<<" Community Cards"<<endl;
+          cout<<" Community Cards:"<<endl;
           cout<<endl<<endl;
           ll.printCommunity(communityCards, 0);
           ll.printCommunity(communityCards, 1);
@@ -563,6 +580,9 @@ int main()
           ll.printCommunity(communityCards, 3);
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
           ll.printHand(firsttwo1);
+          cout<<endl;
+          cout<<" Don't forget them :)";
+          cout<<endl;
           cout<< " Enter 1 to continue "<<endl;
           cin >> r;
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
@@ -616,7 +636,7 @@ int main()
       {
         case '1'://Look at cards
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
-          cout<<" Community Cards"<<endl;
+          cout<<" Community Cards:"<<endl;
           cout<<endl<<endl;
           ll.printCommunity(communityCards, 0);
           ll.printCommunity(communityCards, 1);
@@ -624,6 +644,9 @@ int main()
           ll.printCommunity(communityCards, 3);
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
           ll.printHand(firsttwo2);
+          cout<<endl;
+          cout<<" Don't forget them :)";
+          cout<<endl;
           cout<<endl;
           cout<< " Enter 1 to continue "<<endl;
           cin >> r;
@@ -778,6 +801,7 @@ int main()
 
     if(fold == 0){
       run = true;
+      cout<<"----------------------------------------------------------------------------------"<<endl<<endl;
       ll.printCommunity(communityCards, 0);
       ll.printCommunity(communityCards, 1);
       ll.printCommunity(communityCards, 2);
@@ -810,7 +834,7 @@ int main()
       {
         case '1':
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
-          cout<<" Community Cards "<<endl;
+          cout<<" Community Cards:"<<endl;
           cout<<endl<<endl;
           ll.printCommunity(communityCards, 0);
           ll.printCommunity(communityCards, 1);
@@ -819,6 +843,9 @@ int main()
           ll.printCommunity(communityCards, 4);
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
           ll.printHand(firsttwo1);
+          cout<<endl;
+          cout<<" Don't forget them :)";
+          cout<<endl;
           cout<< " Enter 1 to continue "<<endl;
           cin >> r;
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
@@ -872,7 +899,7 @@ int main()
       {
         case '1'://Look at cards
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
-          cout<<" Community Cards"<<endl;
+          cout<<" Community Cards:"<<endl;
           cout<<endl<<endl;
           ll.printCommunity(communityCards, 0);
           ll.printCommunity(communityCards, 1);
@@ -881,6 +908,9 @@ int main()
           ll.printCommunity(communityCards, 4);
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
           ll.printHand(firsttwo2);
+          cout<<endl;
+          cout<<" Don't forget them :)";
+          cout<<endl;
           cout<<endl;
           cout<< " Enter 1 to continue "<<endl;
           cin >> r;
@@ -1047,9 +1077,10 @@ int main()
     else
     {
       cout<<endl<<endl<<endl<<endl<<endl<<endl;
+      cout<<"----------------------------------------------------------------------------------"<<endl<<endl;
       cout<<" Showdown!!"<<endl;
       cout<<endl<<endl<<endl<<endl<<endl<<endl;
-      cout<<" Community Cards"<<endl;
+      cout<<" Community Cards:"<<endl;
       cout<<endl<<endl;
       ll.printCommunity(communityCards, 0);
       ll.printCommunity(communityCards, 1);
