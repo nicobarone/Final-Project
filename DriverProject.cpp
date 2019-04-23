@@ -1066,13 +1066,13 @@ int main()
       {
         cout<<" Player 1 wins! "<<endl;
         cout<<" Player 1 gets "<<pot<<" chips"<<endl;
-        chips1 = chips1 + pot;
+        
       }
       else if (playerArray2[7]->value == 100)
       {
         cout<<" Player 2 wins! "<<endl;
         cout<<" Player 2 gets "<<pot<<" chips"<<endl;
-        chips2 = chips2 + pot;
+        
       }
       else
       {
