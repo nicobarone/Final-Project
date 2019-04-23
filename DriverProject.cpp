@@ -266,17 +266,18 @@ int main()
         break;
       }
     }
-    cout<<"----------------------------------------------------------------------------------"<<endl;
-    cout<<" The River:"<<endl;
-    ll.printCommunity(communityCards, 0);
-    ll.printCommunity(communityCards, 1);
-    ll.printCommunity(communityCards, 2);
-
-    cout<<endl;
-    cout<<"Player 1's Chips: "<<chips1<<endl;
-    cout<<"Player 2's Chips: "<<chips2<<endl;
+    
     if(fold == 0){
       run = true;
+      cout<<"----------------------------------------------------------------------------------"<<endl;
+      cout<<" The River:"<<endl;
+      ll.printCommunity(communityCards, 0);
+      ll.printCommunity(communityCards, 1);
+      ll.printCommunity(communityCards, 2);
+
+      cout<<endl;
+      cout<<"Player 1's Chips: "<<chips1<<endl;
+      cout<<"Player 2's Chips: "<<chips2<<endl;
     }
     else{
       run = false;
@@ -519,17 +520,18 @@ int main()
         break;
       }
     }
-    ll.printCommunity(communityCards, 0);
-    ll.printCommunity(communityCards, 1);
-    ll.printCommunity(communityCards, 2);
-    ll.printCommunity(communityCards, 3);
 
-    cout<<endl;
-    cout<<"Player 1's Chips: "<<chips1<<endl;
-    cout<<"Player 2's Chips: "<<chips2<<endl;
 
     if(fold == 0){
       run = true;
+      ll.printCommunity(communityCards, 0);
+      ll.printCommunity(communityCards, 1);
+      ll.printCommunity(communityCards, 2);
+      ll.printCommunity(communityCards, 3);
+
+      cout<<endl;
+      cout<<"Player 1's Chips: "<<chips1<<endl;
+      cout<<"Player 2's Chips: "<<chips2<<endl;
     }
     else{
       run = false;
@@ -773,21 +775,22 @@ int main()
         break;
       }
     }
-    ll.printCommunity(communityCards, 0);
-    ll.printCommunity(communityCards, 1);
-    ll.printCommunity(communityCards, 2);
-    ll.printCommunity(communityCards, 3);
-    ll.printCommunity(communityCards, 4);
-    cout<<endl;
-    cout<<"Player 1's Chips: "<<chips1<<endl;
-    cout<<"Player 2's Chips: "<<chips2<<endl;
 
     if(fold == 0){
       run = true;
+      ll.printCommunity(communityCards, 0);
+      ll.printCommunity(communityCards, 1);
+      ll.printCommunity(communityCards, 2);
+      ll.printCommunity(communityCards, 3);
+      ll.printCommunity(communityCards, 4);
+      cout<<endl;
+      cout<<"Player 1's Chips: "<<chips1<<endl;
+      cout<<"Player 2's Chips: "<<chips2<<endl;
     }
     else{
       run = false;
     }
+
     v = 0;
     t = 0;
     x = 0;
@@ -1033,13 +1036,13 @@ int main()
     {
       cout<< "Player 1 folded"<<endl;
       cout<<" Player 2 gets "<<pot<<" chips"<<endl;
-      chips2 = chips2 + pot;
+
     }
     else if (fold == 2)
     {
       cout<< "Player 2 folded"<<endl;
       cout<<" Player 1 gets "<<pot<<" chips"<<endl;
-      chips1 = chips1 + pot;
+
     }
     else
     {
@@ -1066,13 +1069,13 @@ int main()
       {
         cout<<" Player 1 wins! "<<endl;
         cout<<" Player 1 gets "<<pot<<" chips"<<endl;
-        
+        chips1 = chips1 + pot;
       }
       else if (playerArray2[7]->value == 100)
       {
         cout<<" Player 2 wins! "<<endl;
         cout<<" Player 2 gets "<<pot<<" chips"<<endl;
-        
+        chips2 = chips2 + pot;
       }
       else
       {
