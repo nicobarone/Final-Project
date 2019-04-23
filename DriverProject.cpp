@@ -1,4 +1,3 @@
-// Driver for our poker game
 #include <iostream>
 #include "Project.hpp"
 #include <ctime>    // For time()
@@ -33,7 +32,7 @@ int main()
     }
     ll.insertend(0,0);
     //ll.printListstart();
-    Node **playerArray1 = new Node*[10]; //arrays to store the values and suits
+    Node **playerArray1 = new Node*[10];
     Node **playerArray2 = new Node*[10];
     Node **communityCards = new Node*[5];
     Node **firsttwo1 = new Node*[2];
@@ -91,6 +90,10 @@ int main()
             cout<<" You have "<<chips1<<" chips"<<endl;
             cout<<" Enter the amount you would like to bet "<<endl;
             cin >> v;
+          }
+          if(v = chips1){
+            fold = 3;
+            cout<<" Player 1 is ALL IN!!!";
           }
           chips1 = chips1 - v;
           pot = pot + v;
@@ -341,6 +344,10 @@ int main()
             cout<<" Enter the amount you would like to bet "<<endl;
             cin >> v;
           }
+          if(v = chips1){
+            cout<<" Player 1 is ALL IN!!!";
+            fold = 3;
+          }
           chips1 = chips1 - v;
           pot = pot + v;
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
@@ -356,12 +363,7 @@ int main()
     }
 
 
-    if(fold == 0){
-      run = true;
-    }
-    else{
-      run = false;
-    }
+    run = true;
     while(run)//player 2 turn 1
     {
       char choice;
@@ -602,6 +604,10 @@ int main()
             cout<<" Enter the amount you would like to bet "<<endl;
             cin >> v;
           }
+          if(v = chips1){
+            cout<<" Player 1 is ALL IN!!!";
+            fold = 3;
+          }
           chips1 = chips1 - v;
           pot = pot + v;
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
@@ -617,12 +623,7 @@ int main()
     }
 
 
-    if(fold == 0){
-      run = true;
-    }
-    else{
-      run = false;
-    }
+    run = true;
     while(run)//player 2 turn 1
     {
       char choice;
@@ -865,6 +866,10 @@ int main()
             cout<<" Enter the amount you would like to bet "<<endl;
             cin >> v;
           }
+          if(v = chips1){
+            cout<<" Player 1 is ALL IN!!!";
+            fold = 3;
+          }
           chips1 = chips1 - v;
           pot = pot + v;
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
@@ -880,12 +885,7 @@ int main()
     }
 
 
-    if(fold == 0){
-      run = true;
-    }
-    else{
-      run = false;
-    }
+    run = true;
     while(run)//player 2 turn 1
     {
       char choice;
@@ -1129,7 +1129,7 @@ int main()
     cout<<endl;
     cout<<" Would you like to play another turn? (1 = yes / 2 = no) "<<endl;
     cin >> turn;
-    if (turn == 1 && chips1 > 0 && chips2 > 0)
+    if (turn == 1)
     {
       turnend2 = 1;
       turnend1 = 0;
@@ -1218,6 +1218,10 @@ int main()
             cout<<" You have "<<chips2<<" chips"<<endl;
             cout<<" Enter the amount you would like to bet "<<endl;
             cin >> v;
+          }
+          if(v = chips2){
+            cout<<" Player2 is ALL IN!!!";
+            fold = 3;
           }
           chips2 = chips2 - v;
           pot = pot + v;
@@ -1468,6 +1472,10 @@ int main()
             cout<<" Enter the amount you would like to bet "<<endl;
             cin >> v;
           }
+          if(v = chips2){
+            cout<<" Player2 is ALL IN!!!";
+            fold = 3;
+          }
           chips2 = chips2 - v;
           pot = pot + v;
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
@@ -1483,12 +1491,7 @@ int main()
     }
 
 
-    if(fold == 0){
-      run = true;
-    }
-    else{
-      run = false;
-    }
+    run = true;
     while(run)//player 2 turn 1
     {
       char choice;
@@ -1582,7 +1585,7 @@ int main()
             if(chips2 <= v && chips2 != 0){
               pot = pot + chips2;
               chips1 = 0;
-              cout<<" Player 2 is ALL INN!!!"<<endl;
+              cout<<" Player 2 is ALL IN!!!"<<endl;
               cout<<" Pot is "<<pot;
               fold = 3;
               run = false;
@@ -1729,6 +1732,10 @@ int main()
             cout<<" Enter the amount you would like to bet "<<endl;
             cin >> v;
           }
+          if(v = chips2){
+            cout<<" Player2 is ALL IN!!!";
+            fold = 3;
+          }
           chips2 = chips2 - v;
           pot = pot + v;
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
@@ -1744,12 +1751,7 @@ int main()
     }
 
 
-    if(fold == 0){
-      run = true;
-    }
-    else{
-      run = false;
-    }
+    run = true;
     while(run)//player 2 turn 1
     {
       char choice;
@@ -1992,6 +1994,10 @@ int main()
             cout<<" Enter the amount you would like to bet "<<endl;
             cin >> v;
           }
+          if(v = chips2){
+            cout<<" Player2 is ALL IN!!!";
+            fold = 3;
+          }
           chips2 = chips2 - v;
           pot = pot + v;
           cout<<endl<<endl<<endl<<endl<<endl<<endl<<endl<<endl;
@@ -2007,12 +2013,7 @@ int main()
     }
 
 
-    if(fold == 0){
-      run = true;
-    }
-    else{
-      run = false;
-    }
+    run = true;
     while(run)//player 2 turn 1
     {
       char choice;
@@ -2256,7 +2257,7 @@ int main()
     cout<<endl;
     cout<<" Would you like to play another turn? (1 = yes / 2 = no) "<<endl;
     cin >> turn;
-    if (turn == 1 && chips1 > 0 && chips2 > 0)
+    if (turn == 1)
     {
       turnend1 = 1;
       turnend2 = 0;
